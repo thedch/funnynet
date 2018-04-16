@@ -1,6 +1,10 @@
 # funnynet
 Neural Network that makes jokes
 
+## Datset
+
+[Here.](https://github.com/taivop/joke-dataset)
+
 ## Setup
 After git cloning:
 ```
