@@ -12,4 +12,5 @@ cd funnynet
 mkdir data
 cd data
 curl -O https://raw.githubusercontent.com/taivop/joke-dataset/master/reddit_jokes.json
+curl -O https://raw.githubusercontent.com/taivop/joke-dataset/master/stupidstuff.json
 ```
