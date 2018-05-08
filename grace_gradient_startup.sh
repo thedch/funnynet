@@ -7,3 +7,5 @@ curl -O https://raw.githubusercontent.com/taivop/joke-dataset/master/stupidstuff
 cd ..
 ln -s /notebooks/fastai/ fastai
 python -m spacy download en
+git config --global user.email grace.ohair.sherman@gmail.com
+git config --global user.name "Grace O'Hair-Sherman"
