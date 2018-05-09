@@ -9,3 +9,7 @@ ln -s /notebooks/fastai/ fastai
 python -m spacy download en
 git config --global user.email grace.ohair.sherman@gmail.com
 git config --global user.name "Grace O'Hair-Sherman"
+cd funnynet
+mkdir ../courses/dl1/data/nietzsche
+mkdir data/val
+mkdir data/trn
