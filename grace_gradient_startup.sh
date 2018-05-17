@@ -1,3 +1,4 @@
+git pull
 git clone https://github.com/thedch/funnynet
 cd funnynet
 mkdir data
