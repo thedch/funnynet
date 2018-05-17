@@ -71,7 +71,7 @@ def files_to_indexed_list(data_size = -1):
 
     idx = [char_indices[c] for c in text]
 
-    return (idx, char_indices, indices_char)
+    return (idx, char_indices, indices_char, chars, vocab_size)
 
 def format():
     PATH='data/'
@@ -101,6 +101,6 @@ def save_data_to_pickle(pickle_name, data_size = -1):
     
 def load_data(pickle_name):
     pickle_file = open(pickle_name,'rb')
-    idx, char_indices, indices_char = pickle.load(pickle_file)
+    data = pickle.load(pickle_file)
     pickle_file.close()
-    return (idx, char_indices, indices_char)
+    return data
