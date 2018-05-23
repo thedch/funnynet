@@ -5,7 +5,7 @@ import math, random
 import pickle
 
 
-def files_to_indexed_list(data_size = -1):
+def get_text(data_size=-1):
     BOS = 'xbos'  # beginning-of-sentence tag
     FLD = 'xfld'  # data field tag
     EOJ = 'xeoj'  # end of joke tag
@@ -58,6 +58,11 @@ def files_to_indexed_list(data_size = -1):
             text = text + ' ' + joke + ' ' + EOJ + ' '
             if len(text) > data_size: 
                 break
+                
+    return text
+
+def files_to_indexed_list(data_size = -1):
+    text = get_text(data_size)
 
     #get a set of all characters in the text:
     chars = sorted(list(set(text)))
@@ -104,3 +109,21 @@ def load_data(pickle_name):
     data = pickle.load(pickle_file)
     pickle_file.close()
     return data
+
+def divide_data_into_files(data_size=-1, PATH='data/', TRN_PATH='trn/', VAL_PATH='val/'):
+    text = get_text(data_size)
+    
+    TRN = PATH+TRN_PATH
+    VAL = PATH+VAL_PATH
+    
+    DANIEL_PATH = Path(PATH)
+    (DANIEL_PATH/'val').mkdir(exist_ok=True)
+    (DANIEL_PATH/'trn').mkdir(exist_ok=True)
+    
+    trn = open(TRN+"trn.txt","wb")
+    trn.write(text[:len(text)*4//5].encode('utf-8'))#str(idx[0:int(len(idx)*2/3)]))
+    trn.close()
+
+    val = open(VAL+"val.txt","wb")
+    val.write(text[len(text)*4//5:].encode('utf-8'))#str(idx[int(len(idx)*2/3):len(idx)-1]))
+    val.close()
